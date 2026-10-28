@@ -1,0 +1,476 @@
+Quiero que me propongas proyectos reales que puedas resolverse con un modelo agentico.
+
+
+
+
+
+
+
+5:04 p.m.
+
+
+
+
+
+
+Trabajó durante 16s
+
+
+
+Te propongo cuatro proyectos aplicables a problemas reales, con datos públicos y un alcance que podemos convertir en un prototipo durante las seis fases.
+Un sistema agéntico tiene sentido cuando debe interpretar un objetivo, consultar herramientas y datos, decidir los siguientes pasos y comprobar el resultado. No necesitamos crear muchos agentes: uno bien diseñado con varias herramientas puede ser suficiente.
+1. Agente de análisis de ventas y planificación comercial
+Problema: una tienda online necesita entender qué productos pierden ventas, qué clientes dejan de comprar y dónde concentrar sus esfuerzos.
+Qué haría el agente:
+- Consultar las ventas en una base de datos.
+- Investigar caídas por producto, país o periodo.
+- Segmentar clientes según sus compras.
+- Proponer acciones comerciales justificadas con cifras.
+- Comprobar que sus conclusiones coinciden con los datos.
+Ejemplo: «Investiga por qué bajaron las ventas este mes y prepara tres acciones prioritarias».
+Datos reales: el dataset público Online Retail de UCI contiene unas 542.000 transacciones de un comercio electrónico británico. Son datos históricos, adecuados para demostrar el sistema.
+Prototipo: panel de ventas, conversación con el agente e informe de acciones con evidencias.
+Cómo lo probaríamos: contrastar sus cálculos con consultas conocidas y verificar que cada recomendación se apoya en resultados reales.
+Viabilidad para vuestro tiempo: alta. Es mi recomendación si priorizamos terminar un sistema completo.
+2. Agente que encuentra y evalúa licitaciones para una pyme
+Problema: una pequeña empresa dedica mucho tiempo a buscar concursos públicos y leer oportunidades que no encajan con sus servicios.
+Qué haría el agente:
+- Leer el perfil y las capacidades de la empresa.
+- Buscar oportunidades en una base de datos.
+- Revisar requisitos, fechas y documentación disponible.
+- Ordenarlas por encaje y explicar los motivos.
+- Preparar una ficha con requisitos cumplidos, pendientes y dudas.
+Ejemplo: «Somos una consultora de desarrollo web. Encuentra cinco oportunidades y explica cuáles merece la pena revisar».
+Datos reales: Contracts Finder permite consultar oportunidades y contratos adjudicados del sector público británico, con exportaciones en CSV o XML.
+Prototipo: perfil de empresa, listado priorizado y ficha de evaluación con enlaces a las fuentes.
+Cómo lo probaríamos: comprobar fechas, requisitos extraídos y coherencia del ranking con un conjunto revisado manualmente.
+Viabilidad: media-alta, limitando el prototipo a un sector y una muestra de oportunidades. Es la opción que mejor muestra investigación y toma de decisiones mediante herramientas.
+3. Agente de gestión y priorización de incidencias
+Problema: un equipo de operaciones recibe muchas incidencias y necesita identificar acumulaciones, retrasos y casos que requieren revisión.
+Qué haría el agente:
+- Consultar incidencias abiertas y su historial.
+- Agrupar casos similares y señalar posibles duplicados.
+- Detectar zonas o categorías con aumentos inusuales.
+- Proponer prioridades siguiendo reglas definidas.
+- Preparar un resumen operativo para el responsable.
+Ejemplo: «Revisa las incidencias pendientes y prepara el plan de atención de hoy».
+Datos reales: NYC 311 publica solicitudes reales con categorías, organismos responsables, ubicaciones y estados. El conjunto se actualiza diariamente.
+Prototipo: bandeja de incidencias, filtros y propuesta de prioridades explicada. Usaríamos una muestra pequeña de categorías y fechas.
+Cómo lo probaríamos: verificar la aplicación de las reglas de prioridad, los tiempos calculados y las agrupaciones propuestas.
+Viabilidad: alta. Los datos son municipales; su adaptación a mantenimiento empresarial sería parte de nuestra propuesta, no una validación con una empresa real.
+4. Agente de preparación de campañas comerciales
+Problema: un equipo comercial necesita decidir qué segmentos estudiar y cómo distribuir sus esfuerzos de contacto.
+Qué haría el agente:
+- Consultar resultados de campañas anteriores.
+- Comparar tasas de respuesta entre segmentos.
+- Solicitar cálculos o predicciones a una herramienta analítica.
+- Preparar un plan de campaña con sus supuestos.
+- Evaluar los resultados frente a una selección de referencia.
+Ejemplo: «Con capacidad para 100 contactos, prepara una propuesta de campaña y explica cómo evaluar su resultado».
+Datos reales: Bank Marketing de UCI contiene resultados de campañas telefónicas de una entidad bancaria portuguesa.
+Prototipo: análisis de segmentos y propuesta de campaña usando datos históricos, sin realizar contactos.
+Cómo lo probaríamos: separar datos de entrenamiento y evaluación, evitar información que solo se conoce después de la llamada y comparar con una estrategia sencilla.
+Viabilidad: media, porque requiere más cuidado en la evaluación predictiva.
+Mi recomendación es elegir el proyecto 1 para asegurar una entrega completa, o el proyecto 2 si queréis destacar el comportamiento agéntico.
+¿Cuál de los dos te interesa más: analizar ventas y proponer acciones, o buscar y evaluar licitaciones para una pyme?
+
+  
+5:05 p.m.
+
+
+
+
+
+
+
+Tengo que hacer la actividad que te muestro a continuación, dame al menos 3 ideas de qué podría hacer y vamos paso a paso generando:
+Duración: 5 horas de desarrollo
+Modalidad: Trabajo en equipo
+Entrega y presentación: Mañana
+Objetivo de la práctica
+El reto consiste en investigar, diseñar, desarrollar y validar un sistema agéntico de inteligencia artificial aplicado a Business Intelligence, capaz de resolver un problema empresarial mediante datos reales, herramientas y automatizaciones.
+Deberéis aplicar los conocimientos adquiridos durante el módulo: proyectos de IA, Skills, MCP, IDE, CLI, vibe coding, GitHub, Python, JavaScript, frontend, backend y bases de datos.
+Instrucciones
+Toda la información, los requisitos y los tiempos del hackathon están disponibles en la siguiente enlace:
+La web incluye un botón START que inicia una cuenta atrás de cinco horas e indica en qué fase del proyecto deberíais encontraros en cada momento.
+El trabajo se divide en seis fases:
+1. Investigación (45 min): identificar un problema empresarial, investigar el mercado y definir la solución mediante pensamiento divergente y convergente.
+2. Datos (40 min): encontrar un dataset real, analizarlo e incorporarlo a una base de datos.
+3. Arquitectura (35 min): diseñar el sistema agéntico, sus Skills, conexiones MCP, frontend y backend.
+4. Desarrollo (135 min): construir el sistema utilizando vibe coding y al menos una librería de GitHub.
+5. Batería de pruebas (30 min): comprobar el funcionamiento real de todos los componentes y del sistema completo, documentando resultados y errores.
+6. Reflexión (15 min): analizar los aprendizajes, bloqueos y experiencias individuales y colectivas.
+Entrega obligatoria
+Cada equipo deberá entregar preferentemente un enlace a su repositorio de GitHub, con una estructura organizada de carpetas que incluya:
+- Investigación del problema y fuentes consultadas.
+- Dataset real y documentación de la base de datos.
+- Arquitectura del sistema agéntico.
+- Código, agente, Skills, MCP y librerías utilizadas.
+- README.md con instrucciones para ejecutar el proyecto.
+- Batería de pruebas documentada con evidencias de funcionamiento.
+- REFLEXION.md con las respuestas individuales de todos los integrantes y la reflexión conjunta del equipo.
+  Si no es posible utilizar GitHub, se entregará la carpeta completa del proyecto comprimida en ZIP. No incluyáis contraseñas ni claves API.
+Presentación y defensa
+Mañana cada equipo deberá realizar una demostración en directo del sistema, mostrando que funcionan el agente, la Skill, la conexión MCP, la base de datos y el flujo completo.
+También deberá presentar los resultados de su batería de pruebas, explicar los errores encontrados y defender las decisiones técnicas.
+Todos los integrantes deberán tener preparadas sus respuestas de reflexión individual y conocer las conclusiones colectivas del equipo.
+Criterios de evaluación
+Se valorarán la investigación y el pensamiento crítico (15 %), los datos reales (10 %), la arquitectura agéntica (20 %), el desarrollo y funcionamiento (20 %), la batería de pruebas (20 %) y la reflexión individual y colectiva (15 %).
+Importante: No se trata de crear el sistema más complejo, sino de demostrar que funciona, que utiliza datos reales y que sois capaces de justificar las decisiones tomadas.
+El objetivo es aprender haciendo, experimentar, colaborar, resolver problemas y reflexionar sobre el proceso de aprendizaje.
+
+
+
+
+
+
+
+5:07 p.m.
+
+
+
+
+
+
+Para esta práctica elegiría un proyecto con datos accesibles, un problema concreto y un flujo completo fácil de demostrar. La arquitectura y las pruebas suman el 60 % de la nota: conviene reservar tiempo para que funcionen el agente, la Skill, MCP y la base de datos.
+Los tiempos indicados suman 300 minutos —cinco horas— incluyendo investigación, pruebas y reflexión, por lo que las ideas siguientes están acotadas a un prototipo.
+1. Retail BI: agente que investiga las ventas de una tienda online
+Problema empresarial: el responsable comercial ve que las ventas cambian, pero necesita identificar las causas y decidir dónde actuar.
+Ejemplo de petición:
+«Compara los dos últimos meses completos del dataset, identifica los productos que explican la caída y prepara tres recomendaciones».
+
+Flujo agéntico: interpreta la pregunta → consulta la base de datos mediante MCP → calcula variaciones → profundiza en los productos relevantes → ejecuta una Skill de diagnóstico comercial → entrega un informe con cifras y evidencias.
+Datos reales: Online Retail de UCI, con unas 542.000 transacciones históricas de un comercio británico.
+Qué mostraríamos mañana: un panel con indicadores, una pregunta al agente y un informe que permita comprobar de dónde sale cada cifra.
+Alcance mínimo: ventas por mes, productos y países; un único flujo de investigación. El dataset permite analizar ventas, pero las recomendaciones de inventario necesitarían información adicional sobre existencias.
+Dificultad estimada: baja-media. Es mi primera opción para completar y defender bien la práctica.
+2. TenderMatch: agente que selecciona licitaciones para una pyme
+Problema empresarial: una pequeña consultora pierde tiempo buscando contratos públicos que luego no encajan con sus capacidades.
+Ejemplo de petición:
+«Busca oportunidades de desarrollo web que encajen con nuestro perfil y explica cuáles deberíamos revisar primero».
+
+Flujo agéntico: lee el perfil de la empresa → consulta oportunidades mediante MCP → examina requisitos disponibles → aplica una Skill de evaluación de encaje → prepara una clasificación con motivos, dudas y fuentes.
+Datos reales: Contracts Finder, que ofrece oportunidades y contratos públicos británicos con opciones de descarga.
+Qué mostraríamos mañana: perfil de empresa, oportunidades ordenadas y ficha de evaluación de una de ellas.
+Alcance mínimo: un sector, una muestra descargada y tres criterios de encaje. La evaluación se limitaría a los requisitos presentes en los datos o documentos que hayamos incorporado.
+Dificultad estimada: media. Es la propuesta con un comportamiento agéntico más visible, aunque la lectura de documentos puede consumir tiempo.
+3. OpsWatch: agente que analiza incidencias y propone prioridades
+Problema empresarial: un equipo de operaciones necesita detectar acumulación de incidencias y decidir qué grupos requieren atención.
+Ejemplo de petición:
+«Analiza las incidencias abiertas, encuentra las categorías con más retrasos y prepara un resumen operativo».
+
+Flujo agéntico: consulta incidencias mediante MCP → calcula antigüedad y volumen → investiga categorías con acumulación → aplica una Skill con reglas de priorización → propone un plan justificado.
+Datos reales: NYC 311, con solicitudes reales, categorías, ubicaciones y estados.
+Qué mostraríamos mañana: panel de incidencias, identificación de acumulaciones y una propuesta de prioridades trazable.
+Alcance mínimo: una muestra de fechas y tres categorías. Presentaríamos el caso como operaciones de servicios urbanos; su aplicación a mantenimiento empresarial sería una adaptación propuesta.
+Dificultad estimada: baja-media. Es una buena opción para diseñar pruebas claras de reglas, consultas y resultados.
+Comparación para decidir
+Criterio	Retail BI	TenderMatch	OpsWatch
+Facilidad de preparar los datos	Alta	Media	Alta, usando una muestra
+Valor visible del agente	Investigación de causas	Búsqueda y evaluación	Investigación y priorización
+Facilidad de comprobar resultados	Alta	Media	Alta
+Principal reto	Interpretar bien devoluciones y periodos	Extraer requisitos fiables	Justificar las prioridades
+
+
+Para cualquiera usaríamos una estructura pequeña: frontend sencillo, backend en Python, SQLite, un agente con herramientas, una Skill documentada y un servidor MCP que consulte realmente la base de datos. Elegiríamos y documentaríamos al menos una librería de GitHub durante el diseño. La demostración mostraría las llamadas a herramientas y sus resultados.
+Mi recomendación es Retail BI: ofrece datos reales accesibles, cálculos comprobables y una demo comprensible. Además, permite dedicar tiempo a las pruebas y a las evidencias, que pesan mucho en la evaluación.
+Vamos paso a paso: ahora solo elegimos el proyecto. Después generaremos la investigación del problema, las alternativas y la justificación de la solución antes de avanzar a datos.
+¿Cuál elegís: 1. Retail BI, 2. TenderMatch o 3. OpsWatch? Si tienes el enlace del hackathon, compártelo también para comprobar los requisitos adicionales.
+
+  
+5:07 p.m.
+
+
+
+
+
+
+
+Quiero mas opciones enfocadas en diferentes problemas diarios
+
+
+
+
+
+
+
+5:11 p.m.
+
+
+
+
+
+
+Trabajó durante 4min 2s
+
+
+
+Aquí tienes ocho opciones centradas en problemas cotidianos de empresas y equipos. Todas se pueden acotar a una demo de cinco horas con datos reales, base de datos, agente, Skill y conexión MCP.
+La clave será que el agente investigue datos y proponga una acción comprobable, además de responder preguntas.
+Proyecto	Problema cotidiano	Qué haría el agente	Datos para desarrollarlo
+1. Compras bajo control	Una empresa compra el mismo material a precios diferentes y no detecta gastos inusuales.	Consulta compras, compara proveedores y periodos, investiga desviaciones y propone qué revisar.	Compras públicas abiertas o un histórico real de compras anonimizado.
+2. Menos desperdicio de comida	Una cafetería prepara demasiada comida o se queda corta.	Analiza consumo por día, estima la demanda y propone cantidades bajo distintos escenarios.	Ventas reales de un restaurante o dataset público de demanda alimentaria.
+3. Agenda sin huecos	Las cancelaciones y ausencias dejan horas improductivas en un negocio con citas.	Analiza patrones de ausencias, identifica franjas problemáticas y propone recordatorios o ajustes de agenda.	Histórico real anonimizado de citas o dataset público de asistencia.
+4. Atención al cliente sin atasco	Se acumulan consultas y el equipo no sabe qué problemas se repiten.	Agrupa reclamaciones, consulta sus estados, investiga tendencias y prepara prioridades y borradores de respuesta.	Reclamaciones públicas o tickets reales anonimizados.
+5. Energía bajo control	Un comercio consume electricidad fuera del horario de apertura sin saber por qué.	Consulta consumos, detecta anomalías horarias y prepara una lista de comprobaciones con su impacto estimado.	Mediciones públicas de consumo eléctrico o registros reales de un local.
+6. Entregas con retraso	Una tienda recibe preguntas constantes sobre pedidos que llegan tarde.	Compara fechas prometidas y reales, investiga retrasos por transportista o zona y propone acciones.	Dataset público de comercio electrónico con pedidos y entregas.
+7. Bicicletas donde hacen falta	Un servicio de alquiler tiene estaciones vacías mientras otras acumulan bicicletas.	Analiza demanda por hora y estación, detecta desequilibrios y propone movimientos de bicicletas.	Datos abiertos de viajes de un servicio de bicicletas compartidas.
+8. Reseñas que se convierten en mejoras	Un hotel o restaurante tiene muchas reseñas, pero no sabe qué corregir primero.	Agrupa comentarios por tema, compara periodos y prioriza problemas según frecuencia y valoración.	Reseñas reales disponibles con licencia adecuada o una exportación propia.
+
+
+Las tres que mejor encajan con vuestra práctica son estas:
+A. Atención al cliente sin atasco
+Una persona responsable del servicio pregunta:
+«¿Qué problemas están generando más reclamaciones y qué deberíamos atender primero?»
+
+El agente consulta la base de datos mediante MCP, compara categorías y periodos, profundiza en los problemas detectados y aplica una Skill de diagnóstico de reclamaciones.
+Demo mínima: panel de reclamaciones, pregunta al agente e informe con tres prioridades y ejemplos que las respalden.
+Pruebas claras: comprobar los recuentos, verificar que las fuentes existen y detectar respuestas que atribuyan causas sin evidencias.
+Por qué elegirlo: combina texto y datos numéricos, y el problema se entiende rápidamente.
+B. Entregas con retraso
+El responsable de una tienda pregunta:
+«¿Dónde están aumentando los retrasos y qué pedidos necesitan revisión?»
+
+El agente consulta pedidos y entregas mediante MCP, calcula retrasos, compara zonas o transportistas y aplica una Skill de análisis logístico para preparar recomendaciones.
+Demo mínima: indicadores de puntualidad, listado de pedidos retrasados y diagnóstico de los grupos más afectados.
+Pruebas claras: validar fechas, cálculos de retraso y tratamiento de pedidos todavía sin entregar.
+Por qué elegirlo: el resultado es muy fácil de comprobar y defender con cifras.
+C. Energía bajo control
+El encargado de un local pregunta:
+«¿Qué consumos fuera de horario debería revisar esta semana?»
+
+El agente consulta las mediciones mediante MCP, compara días y franjas, detecta desviaciones y aplica una Skill de revisión energética.
+Demo mínima: gráfico de consumo, selección del horario de apertura e informe de anomalías con evidencias. Las causas concretas —por ejemplo, un equipo encendido— se presentarían como hipótesis que deben comprobarse.
+Pruebas claras: introducir horarios conocidos, verificar anomalías y comprobar que el agente distingue observaciones de hipótesis.
+Por qué elegirlo: es visual, cotidiano y permite una demostración muy concreta.
+Mi elección sería “Entregas con retraso” si queréis un proyecto fácil de validar, o “Atención al cliente sin atasco” si preferís trabajar con lenguaje y análisis de reclamaciones. Las fuentes concretas y sus licencias las verificaremos al elegir la idea, antes de comprometernos con ella.
+¿Cuál te atrae más: compras, comida, citas, atención al cliente, energía, entregas, bicicletas o reseñas?
+
+  
+5:15 p.m.
+
+
+
+
+
+
+
+quiero enfocarlo a un chef personalizado y un comprador under control
+
+
+
+
+
+
+
+5:17 p.m.
+
+
+
+
+
+
+Podemos unir ambas ideas en un proyecto: un chef personal que planifica tus comidas y prepara una compra ajustada a tu presupuesto.
+Asumo que con «comprador under control» te refieres a controlar el gasto y evitar compras innecesarias. Ese sería el centro del proyecto.
+Propuesta: Chef & Compra bajo Control
+Problema cotidiano: decidir qué cocinar, aprovechar lo que ya hay en casa y comprar lo necesario sin superar un presupuesto lleva tiempo. Las decisiones desconectadas pueden generar gasto y desperdicio.
+Usuario objetivo inicial: una persona o familia que quiere organizar sus comidas semanales con un presupuesto limitado.
+Ejemplo de petición:
+«Somos dos personas, tenemos 60 € para cinco días y queremos cenas vegetarianas de menos de 30 minutos. Ya tenemos arroz, huevos y tomates. Prepara el menú y la lista de compra».
+
+El sistema seguiría este flujo:
+1. Recoge las condiciones: comensales, presupuesto, preferencias, ingredientes disponibles y tiempo para cocinar.
+2. Consulta recetas y precios en la base de datos mediante MCP.
+3. Propone un menú que reutilice ingredientes y aproveche la despensa.
+4. Calcula la compra: descuenta las existencias, agrupa ingredientes y considera los formatos de venta.
+5. Revisa el presupuesto: si lo supera, busca sustituciones y vuelve a calcular.
+6. Presenta el resultado: menú, cantidades, coste estimado y motivos de las sustituciones.
+Dos funciones dentro del sistema
+Función	Responsabilidad	Resultado
+Chef personalizado	Seleccionar recetas según preferencias, disponibilidad y tiempo	Menú y pasos de preparación
+Comprador bajo control	Calcular cantidades y costes, comprobar restricciones y proponer sustituciones	Lista de compra dentro del presupuesto o explicación de por qué no es viable
+
+
+Podemos implementarlas como un agente con dos Skills. Es una arquitectura manejable para cinco horas y permite demostrar ambas funciones.
+Cómo encaja en Business Intelligence
+Para reforzar el componente empresarial, lo plantearía como un prototipo de servicio para una empresa de planificación de comidas y compra asistida.
+El panel mostraría indicadores útiles para el usuario y para evaluar el servicio:
+- Coste estimado total y por ración.
+- Diferencia entre presupuesto y compra propuesta.
+- Ingredientes de la despensa aprovechados.
+- Ingredientes compartidos entre recetas.
+- Productos que concentran más gasto.
+Solo mostraremos ahorro si contamos con una alternativa de referencia comparable; no inventaremos una cifra.
+Alcance para terminar en cinco horas
+Incluiríamos:
+- Planificación de tres días de cenas para uno a cuatro comensales.
+- Un conjunto pequeño de recetas reales y precios documentados.
+- Despensa introducida manualmente.
+- Una moneda y una fuente de precios.
+- Base de datos, conexión MCP, dos Skills y una interfaz sencilla.
+- Replanificación cuando cambia el presupuesto o falta un ingrediente.
+Los precios se presentarían con su fuente y fecha como estimaciones. La compra quedaría preparada para revisión, sin efectuar pedidos.
+La demo de mañana: introducir presupuesto y despensa → generar menú y compra → reducir el presupuesto → ver cómo el agente consulta alternativas, recalcula y explica los cambios.
+Las pruebas clave: comprobar que respeta las restricciones, calcula bien cantidades y formatos, descuenta la despensa y reconoce cuándo el presupuesto no alcanza. Los cálculos los realizará código; el agente se encargará de seleccionar, investigar y explicar.
+Para empezar la fase 1, confirmemos una sola decisión: ¿lo enfocamos en personas y familias que organizan su compra doméstica, o en un pequeño restaurante que planifica menús y compras? Recomiendo el doméstico para mantener el alcance y llegar a una demo completa.
+
+  
+5:17 p.m.
+
+
+
+
+
+
+
+Investiga mercado, soluciones actuales, competidores.
+
+
+
+
+
+
+
+5:22 p.m.
+
+
+
+
+
+
+Trabajó durante 11min 45s
+
+
+La idea tiene encaje en un mercado existente, pero “menús personalizados + lista de compra” ya lo ofrecen varios competidores. Nuestra oportunidad sería centrarnos en controlar un presupuesto verificable, aprovechar la despensa y explicar cada decisión con datos.
+Investigación realizada el 28 de octubre de 2026, tomando como referencia hogares en España. He revisado fuentes oficiales y páginas de producto; las funciones descritas son las anunciadas por sus proveedores, sin haber probado las aplicaciones.
+1. Mercado: qué problema estamos resolviendo
+El proyecto conecta tres necesidades cotidianas:
+- Decidir qué cocinar: según gustos, tiempo y número de comensales.
+- Aprovechar lo disponible: evitar comprar ingredientes que ya tenemos o dejar productos sin utilizar.
+- Controlar el gasto: conocer el desembolso de la compra antes de decidir el menú.
+Existe evidencia del problema del desperdicio. En España, el 77,6 % del desperdicio doméstico de 2024 correspondió a productos sin utilizar, frente al 22,4 % de recetas elaboradas. Esto respalda investigar soluciones que intervengan antes de cocinar: inventario, planificación y compra. No demuestra por sí solo que una aplicación lo reduzca. Datos oficiales de 2024.
+El MAPA mantiene un panel de desperdicio de 4.000 hogares y publica informes y datos, incluidos los de 2025. Es una fuente útil para contextualizar el proyecto, aunque no sustituye a un catálogo de recetas y precios para hacerlo funcionar. Panel del MAPA.
+Segmento inicial propuesto —hipótesis por validar—: personas que cocinan habitualmente para uno a cuatro comensales, tienen poco tiempo y necesitan ajustar la compra a un límite semanal.
+2. Competidores y soluciones actuales
+Solución	Qué ofrece según sus fuentes oficiales	Implicación para nuestro proyecto
+Samsung Food	Recetas, planificación, listas de compra y planes personalizados con IA. También gestiona alimentos de nevera y despensa, con algunas funciones vinculadas a Food+.	Es un competidor amplio: añadir IA o despensa no basta para diferenciarnos.
+Eat This Much	Planes según preferencias, presupuesto y horarios; lista automática, despensa y planificación de sobras.	Es el competidor más cercano al concepto combinado de chef y comprador.
+Sidekick, de Sorted Food	Agrupa recetas que comparten ingredientes y genera una lista conjunta, buscando reducir sobrantes.	Reutilizar ingredientes entre platos ya es una propuesta existente.
+Cookidoo	Planificación semanal, recetas y lista editable y compartible, dentro del ecosistema Thermomix.	Ofrece una experiencia integrada de planificación y cocina.
+Bring!	Listas compartidas, importación de ingredientes de recetas y ofertas de comercios en los mercados donde estén disponibles.	Compite especialmente en la organización cotidiana de la compra.
+Kooki	Anuncia menús, despensa, tickets, caducidades y estimación de compra con precios recientes. Su web invita a una lista de espera para España.	Es una propuesta local muy próxima; debemos distinguir funciones anunciadas de disponibilidad comprobada.
+
+
+Fuentes: Samsung Food: planificación y despensa; Eat This Much; Sidekick; Cookidoo; Bring!; Kooki.
+Referencia histórica: Mealime ofrecía planificación personalizada y compra integrada, pero su página oficial anunció el cierre para el 21 de octubre de 2026. Por eso no lo consideraría un competidor activo sin comprobar su situación posterior. Aviso oficial de Mealime.
+3. Qué aprendemos de la competencia
+Las funciones básicas ya están cubiertas: recetas personalizadas, menús, listas de compra y aprovechamiento de ingredientes.
+El presupuesto también aparece en soluciones existentes. Por ejemplo, Eat This Much documenta ajustes para excluir alimentos generalmente caros y priorizar ingredientes compartidos. Por tanto, no podemos afirmar que somos los primeros en planificar comidas económicas. Control de presupuesto en Eat This Much.
+La oportunidad que propongo explorar es una experiencia de control económico más explícita:
+|
+
+
+
+
+
+
+Hay mercado para la idea, pero también competencia directa: ya existen aplicaciones que combinan recetas, menús, despensa y listas de compra. Nuestra oportunidad debe centrarse en controlar un presupuesto con cálculos verificables y explicar cómo cambia el menú para cumplirlo.
+Esta investigación toma como referencia hogares en España y documentación pública consultada el 28 de octubre de 2026. Es una revisión de mercado; no he probado las aplicaciones ni validado todavía la disposición de los usuarios a pagar.
+1. El problema que queremos resolver
+El proyecto conecta tres decisiones diarias:
+- Qué cocinar: según gustos, tiempo y comensales.
+- Qué aprovechar: teniendo en cuenta los alimentos disponibles.
+- Qué comprar: ajustando cantidades y gasto.
+El desperdicio es un problema documentado. En los datos oficiales de 2024, el 77,6 % del desperdicio doméstico correspondía a productos sin utilizar y el 22,4 % a recetas elaboradas. Esto respalda investigar tanto el aprovechamiento de ingredientes como la planificación de cantidades. Son datos de 2024, no una estimación actual. Fuente: Ministerio de Agricultura, publicada en La Moncloa.
+El MAPA dispone además de un panel de seguimiento de 4.000 hogares y publica informes y datos, incluidos los de 2025. Esta fuente sirve para justificar el problema, pero no proporciona por sí sola el catálogo de recetas y precios que necesita nuestra aplicación. Panel de desperdicio alimentario del MAPA.
+2. Competidores y soluciones actuales
+Solución	Qué ofrece según su documentación	Implicación para nuestro proyecto
+Samsung Food	Recetas, planificación de comidas, listas de compra y personalización con IA mediante Food+. También dispone de inventario de alimentos y registro de fechas.	Es un competidor directo: unir menú, IA y despensa ya existe. Planificador, gestión de alimentos.
+Eat This Much	Generación de menús según preferencias, presupuesto y horario; listas, despensa y aprovechamiento de sobras en sus funciones de suscripción.	Es uno de los competidores más próximos. También contempla opciones para reducir el coste y repetir ingredientes. Producto, opciones de presupuesto.
+Sorted Sidekick	Agrupa recetas que comparten ingredientes y genera una lista de compra, con planificación y cocina guiada.	Compartir ingredientes para reducir desperdicio tampoco sería una diferenciación suficiente. Funciones de Sidekick.
+Cookidoo	Planificación semanal y lista editable y compartible dentro del ecosistema de recetas de Thermomix.	Compite por la comodidad de pasar del menú a la compra y a la preparación. Planificación de Cookidoo.
+Bring!	Listas compartidas, incorporación de ingredientes desde recetas y consulta de ofertas locales donde estén disponibles.	Es una alternativa para coordinar la compra doméstica, aunque su propuesta pública se centra en la lista y las ofertas. Funciones de Bring!.
+Kooki	Su web anuncia menús, lista automática, nevera, tickets, caducidades y estimaciones con precios recientes. También invita a una lista de espera para su lanzamiento en España.	Es una propuesta local muy cercana. Debemos tratarla como producto anunciado, sin dar por comprobadas sus funciones. Web de Kooki.
+
+
+Referencia histórica: Mealime combinaba personalización, menús y compra. Sin embargo, su web anuncia el cierre para el 21 de octubre de 2026, fecha ya pasada. Por eso no lo presentaría como competidor operativo confirmado. Aviso en su web oficial.
+3. Qué aprendemos de la competencia
+Las funciones básicas están cubiertas: recomendar recetas, generar menús, compartir listas y aprovechar ingredientes son prestaciones existentes.
+Además, el presupuesto tampoco es una idea exclusiva: Eat This Much lo incluye expresamente. Su ayuda describe una opción de precio diario bajo y ajustes para reutilizar alimentos; eso no basta para afirmar que carezca de otras capacidades presupuestarias. Documentación de presupuesto.
+Nuestra diferenciación propuesta sería una combinación concreta:
+Aspecto	Qué demostraría nuestro prototipo
+Límite de gasto explícito	La compra cabe en el presupuesto o el sistema explica que no encuentra una solución viable.
+Coste de compra y de consumo separados	Si una receta usa 200 g de arroz, pero hay que comprar un paquete de 1 kg, el presupuesto incluye el paquete completo.
+Precios trazables	Cada producto muestra fuente, fecha, formato y precio utilizado.
+Despensa cuantificada	Descuenta cantidades disponibles antes de calcular lo que falta comprar.
+Replanificación explicada	Muestra qué receta o ingrediente sustituye, por qué y cuánto cambia el coste.
+
+
+Esto es una hipótesis de posicionamiento, no una afirmación de que ningún competidor lo haga. Para demostrar una ventaja comercial necesitaríamos pruebas de producto y entrevistas.
+4. Público objetivo y propuesta de valor
+Para el hackathon, propongo empezar con hogares de una o dos personas que cocinan habitualmente, disponen de poco tiempo y fijan un presupuesto para varias cenas. Es un segmento inicial que debemos validar, no un resultado de la investigación.
+La propuesta de valor sería:
+“Dinos qué tienes, cuánto puedes gastar y cuánto tiempo tienes. Te proponemos qué cocinar y qué comprar, con el coste desglosado y alternativas si el presupuesto cambia”.
+
+El componente de Business Intelligence estaría en comparar planes y explicar decisiones mediante indicadores: gasto total, coste por ración, desviación presupuestaria, uso de despensa y productos que concentran el gasto.
+5. Decisión recomendada para la práctica
+Mantendría el proyecto, con este alcance: tres cenas, uno o dos comensales, despensa manual y un catálogo pequeño de recetas y precios reales documentados.
+La demostración central sería:
+«Planifica tres cenas por 25 € con estos ingredientes». Después: «Ahora solo puedo gastar 20 €».
+
+El agente consultaría datos, calcularía la compra, buscaría alternativas y verificaría el nuevo total. Ese flujo permite demostrar una utilidad concreta y diseñar pruebas objetivas.
+El siguiente paso de investigación es validar el problema con tres a cinco personas: cómo planifican hoy, qué les dificulta respetar el presupuesto y si aceptarían cambiar un plato para reducir el gasto. Con esas respuestas podremos elegir y justificar la solución antes de pasar a los datos.
+
+  
+5:34 p.m.
+
+
+
+
+
+
+
+ok, ahora para continuar localiza un dataset real en Kaggle, INE, Datos.gob.es o APIs públicas.
+Documenta fuente, licencia, estructura, calidad y posibles errores.
+Importa los datos a Supabase, PostgreSQL, SQLite u otra base de datos.
+Comprueba que tu sistema puede consultarlos.
+
+
+
+
+
+
+
+5:39 p.m.
+
+
+
+
+
+
+Trabajó durante 5min 19s
+
+
+
+La capa de datos ya está preparada, importada a SQLite y comprobada.
+Fuente pública	Datos importados	Condiciones
+TheMealDB	25 recetas y 202 entradas de ingredientes	Condiciones propias para desarrollo educativo; no es una licencia abierta general
+Open Prices	109 observaciones únicas de precios del entorno de Madrid	ODbL, con atribución y obligaciones de redistribución
+
+
+He documentado fuentes, condiciones de uso, estructura, transformaciones, calidad y posibles errores.
+Consultas reales verificadas:
+- Ingrediente tomato: devuelve Ezme y Paella.
+- Producto leche: devuelve 6 observaciones, incluyendo leche semidesnatada de 1 litro por 0,83 €, observada el 26/10/2026 en Leganés.
+- 7 pruebas superadas, incluida integridad, relaciones entre tablas, consultas parametrizadas y acceso de solo lectura.
+- Reconstrucción sin conexión comprobada con los archivos originales.
+Limitación importante: todavía no podemos garantizar el coste de un menú completo. Hay precios antiguos, cantidades incompletas y falta relacionar cada ingrediente con un producto y su formato. No se han inventado los datos ausentes.
+Archivos de entrega:
+- [Descargar proyecto completo en ZIP](/Users/obedalvarado.97/Documents/Codex/2026-10-28/ay/outputs/chef-control-datos.zip)
+- [Documentación de datos y calidad](/Users/obedalvarado.97/Documents/Codex/2026-10-28/ay/outputs/chef-control/docs/DATOS.md)
+- [Instrucciones de ejecución](/Users/obedalvarado.97/Documents/Codex/2026-10-28/ay/outputs/chef-control/README.md)
+- [Resultados de las pruebas](/Users/obedalvarado.97/Documents/Codex/2026-10-28/ay/outputs/chef-control/evidence/tests.txt)
+El siguiente paso es diseñar la arquitectura del agente, las dos Skills y la conexión MCP sobre estas consultas.
+
+  
+5:45 p.m.

@@ -1,0 +1,203 @@
+recipe_id,position,ingredient,ingredient_key,measure_raw
+52977,1,Lentils,lentils,1 cup
+52977,2,Onion,onion,1 large
+52977,3,Carrots,carrots,1 large
+52977,4,Tomato Puree,tomato puree,1 tbs
+52977,5,Cumin,cumin,2 tsp
+52977,6,Paprika,paprika,1 tsp
+52977,7,Mint,mint,1/2 tsp
+52977,8,Thyme,thyme,1/2 tsp
+52977,9,Black Pepper,black pepper,1/4 tsp
+52977,10,Red Pepper Flakes,red pepper flakes,1/4 tsp
+52977,11,Vegetable Stock,vegetable stock,4 cups
+52977,12,Water,water,1 cup
+52977,13,Sea Salt,sea salt,Pinch
+52978,1,Potatoes,potatoes,2 large
+52978,2,Butter,butter,2 tbs
+52978,3,Cheese,cheese,150g
+52978,4,Onion,onion,1 large
+52978,5,Red Pepper,red pepper,1 large
+52978,6,Red Chilli Flakes,red chilli flakes,Pinch
+53026,1,Broad Beans,broad beans,3 cups
+53026,2,Spring Onions,spring onions,6
+53026,3,Garlic Clove,garlic clove,4
+53026,4,Parsley,parsley,1/4 cup
+53026,5,Cumin,cumin,2 tsp
+53026,6,Baking Powder,baking powder,1 tsp
+53026,7,Cayenne Pepper,cayenne pepper,1/2 tsp
+53026,8,Flour,flour,Spinkling
+53026,9,Vegetable Oil,vegetable oil,As required
+53060,1,Filo Pastry,filo pastry,1 Packet
+53060,2,Minced Beef,minced beef,150g
+53060,3,Onion,onion,150g
+53060,4,Oil,oil,40g
+53060,5,Salt,salt,Dash
+53060,6,Pepper,pepper,Dash
+53065,1,Sushi Rice,sushi rice,300ml
+53065,2,Rice wine,rice wine,100ml
+53065,3,Caster Sugar,caster sugar,2 tbs
+53065,4,Mayonnaise,mayonnaise,3 tbs
+53065,5,Rice wine,rice wine,1 tbs
+53065,6,Soy Sauce,soy sauce,1 tbs
+53065,7,Cucumber,cucumber,1
+53069,1,Beef,beef,1 lb
+53069,2,Soy Sauce,soy sauce,5 tablespoons
+53069,3,Lemon,lemon,1
+53069,4,Garlic,garlic,3 cloves
+53069,5,Onion,onion,3 parts
+53069,6,Olive Oil,olive oil,4 tbs
+53069,7,Water,water,1 cup
+53069,8,Salt,salt,1 pinch
+53086,1,Bread,bread,1 large
+53086,2,Olive Oil,olive oil,1 1/2 L
+53086,3,Garlic,garlic,Half
+53086,4,Pork,pork,1 Handfull
+53133,1,Mixed Beef Cuts,mixed beef cuts,2kg
+53133,2,Chorizo,chorizo,4
+53133,3,Morcilla,morcilla,2
+53133,4,Salt,salt,To taste
+53139,1,Chickpea Flour,chickpea flour,200g
+53139,2,Water,water,600ml
+53139,3,Olive Oil,olive oil,4 tablespoons
+53139,4,Salt,salt,To taste
+53139,5,Pepper,pepper,To taste
+53146,1,Dried white corn,dried white corn,500g
+53146,2,Dried white beans,dried white beans,200g
+53146,3,Pumpkin,pumpkin,300g
+53146,4,Potatoes,potatoes,200g
+53146,5,Beef,beef,300g
+53146,6,Pork,pork,200g
+53146,7,Chorizo,chorizo,1
+53146,8,Onion,onion,1 chopped
+53146,9,Paprika,paprika,1 teaspoon
+53146,10,Salt,salt,To taste
+53146,11,Pepper,pepper,To taste
+53151,1,Olive Oil,olive oil,3 tablespoons
+53151,2,Raw tiger prawns,raw tiger prawns,10
+53151,3,Parsley,parsley,Bunch
+53151,4,Dry sherry,dry sherry,100 ml
+53151,5,Mussels,mussels,500g
+53151,6,Saffron,saffron,Pinch
+53151,7,Chorizo,chorizo,150g
+53151,8,Onion,onion,1 chopped
+53151,9,Garlic,garlic,3 cloves
+53151,10,Squid,squid,1 medium
+53151,11,Tomato,tomato,2
+53151,12,Paella Rice,paella rice,250g
+53151,13,Broad Beans,broad beans,100g
+53151,14,Lemon Zest,lemon zest,1
+53216,1,Knafeh,knafeh,400g
+53216,2,Unsalted Butter,unsalted butter,6 tablespoons
+53216,3,Yellow Food Colouring,yellow food colouring,1 pinch
+53216,4,Mozzarella,mozzarella,1 cup
+53216,5,Cream Cheese,cream cheese,1/4 cup
+53216,6,Milk,milk,1 1/2 cup
+53216,7,Sugar,sugar,4 tablespoons
+53216,8,Corn Flour,corn flour,2 tablespoons
+53216,9,Sugar,sugar,1 cup
+53216,10,Water,water,1 cup
+53216,11,Rose water,rose water,1 tsp
+53216,12,Lemon Juice,lemon juice,1/2 teaspoon
+53220,1,Chicken,chicken,400g
+53220,2,Rice,rice,1 cup
+53220,3,Green Pepper,green pepper,1
+53220,4,Red Pepper,red pepper,1
+53220,5,Mushrooms,mushrooms,2
+53220,6,Sweetcorn,sweetcorn,1
+53220,7,Carrots,carrots,2
+53220,8,Raisins,raisins,Handful
+53220,9,Turmeric,turmeric,1 tsp
+53220,10,Kabse Spice,kabse spice,1 tsp
+53220,11,Salt,salt,Pinch
+53220,12,Black Pepper,black pepper,Pinch
+53254,1,Tomato,tomato,3 Large
+53254,2,Romano Pepper,romano pepper,1 medium
+53254,3,Green Chilli,green chilli,1 medium
+53254,4,Onion,onion,1 small
+53254,5,Garlic,garlic,2 cloves minced
+53254,6,Parsley,parsley,25g
+53254,7,Red Pepper Paste,red pepper paste,2 tablespoons
+53254,8,Tomato Puree,tomato puree,1 tablespoon
+53254,9,Pomegranate Molasses,pomegranate molasses,2 tablespoons
+53254,10,Pul Biber,pul biber,1 tablespoon
+53254,11,Sumac,sumac,2 tsp
+53254,12,Dried Mint,dried mint,1 tablespoon
+53254,13,Extra Virgin Olive Oil,extra virgin olive oil,60 ml
+53256,1,Natural Yoghurt,natural yoghurt,500g
+53256,2,Lemon Juice,lemon juice,2 tsp
+53256,3,Extra Virgin Olive Oil,extra virgin olive oil,1 tablespoon
+53256,4,Dried Mint,dried mint,1 tablespoon
+53256,5,Cucumber,cucumber,1
+53256,6,Garlic,garlic,2 cloves minced
+53266,1,Sunflower Oil,sunflower oil,2 tablespoons
+53266,2,Onion,onion,1 chopped
+53266,3,Garlic,garlic,1 clove peeled crushed
+53266,4,Chickpeas,chickpeas,400g
+53266,5,Ground Cumin,ground cumin,1 tsp
+53266,6,Ground Coriander,ground coriander,1 tsp
+53266,7,Parsley,parsley,Handful
+53266,8,Egg,egg,1 beaten
+53269,1,Chickpeas,chickpeas,400g
+53269,2,Tahini Paste,tahini paste,1 tablespoon
+53269,3,Garlic Clove,garlic clove,1 large
+53269,4,Greek Yogurt,greek yogurt,3  tablespoons
+53269,5,Lemon,lemon,Juice of half
+53311,1,Beef Shin,beef shin,1kg
+53311,2,Onion,onion,1
+53311,3,Bay Leaf,bay leaf,1
+53311,4,Potatoes,potatoes,2.5kg
+53311,5,Sunflower Oil,sunflower oil,2 tablespoons
+53311,6,Onion,onion,1 Diced
+53311,7,Carrots,carrots,1
+53311,8,Beetroot,beetroot,200g
+53311,9,Red Pepper,red pepper,1 chopped
+53311,10,Tinned Tomatos,tinned tomatos,200g
+53311,11,Prunes,prunes,6
+53311,12,White Cabbage,white cabbage,1/2
+53311,13,Kidney Beans,kidney beans,400g
+53311,14,Creme Fraiche,creme fraiche,100 ml
+53311,15,Dill,dill,Bunch
+53311,16,Crusty Bread,crusty bread,To serve
+53322,1,Sugar,sugar,100g
+53322,2,Milk,milk,350g
+53322,3,Sugar,sugar,45g
+53322,4,vanilla pod,vanilla pod,1
+53322,5,Egg Yolks,egg yolks,4
+53322,6,Egg,egg,2
+53322,7,Dulce de leche,dulce de leche,To taste
+53399,1,Whole Milk,whole milk,6 cups
+53399,2,Cornstarch,cornstarch,5 tblsp
+53399,3,Sugar,sugar,1 1/2 cups
+53399,4,Ground Cardomom,ground cardomom,1/2 tsp
+53399,5,Rose water,rose water,1 tsp
+53399,6,Almonds,almonds,Handful
+53399,7,Pistachio,pistachio,Handful
+53436,1,Yogurt,yogurt,2 cups
+53436,2,Cold Water,cold water,1 cup
+53436,3,Garlic,garlic,1 clove peeled crushed
+53436,4,Salt,salt,1/2 tsp
+53436,5,Dried Mint,dried mint,1 tsp
+53436,6,Cucumber,cucumber,1
+53439,1,Salt,salt,1 tsp
+53439,2,Corn Flour,corn flour,1 cup
+53439,3,Warm Water,warm water,1 1/4 cup
+53443,1,Onion,onion,1 chopped
+53443,2,Garlic,garlic,2 cloves
+53443,3,Lemons,lemons,Juice of 2
+53443,4,Sugar,sugar,2 tablespoons
+53443,5,Soy Sauce,soy sauce,1 cup
+53443,6,Salt,salt,1 tsp
+53443,7,Ground Coriander,ground coriander,1 tsp
+53443,8,Oil,oil,1 cup
+53443,9,Beef,beef,4-5 pound
+53443,10,Oil,oil,1 cup
+53443,11,Soy Sauce,soy sauce,2 tablespoons
+53450,1,Grits,grits,1/4 cup
+53450,2,Salt,salt,1 tsp
+53450,3,Water,water,1 cup
+53470,1,Beef,beef,1 kg
+53470,2,Onion,onion,1
+53470,3,Bay Leaf,bay leaf,3
+53470,4,Salt,salt,To taste
+53470,5,Black Pepper,black pepper,Sprinkling
+53470,6,Water,water,1 Litre

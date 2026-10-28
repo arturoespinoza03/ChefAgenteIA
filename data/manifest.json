@@ -1,0 +1,10 @@
+{
+  "retrieved_at_utc": "2026-10-28T16:42:17.393253+00:00",
+  "sources": [
+    {
+      "url": "https://www.themealdb.com/api/json/v1/1/search.php?s=",
+      "file": "data/raw/themealdb.json",
+      "sha256": "3930432f9c7cd7f97cd4b49c9338bced7060b7ea390dd4b0c488677053b88ec0"
+    }
+  ]
+}

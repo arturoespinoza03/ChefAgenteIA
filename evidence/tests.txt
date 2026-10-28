@@ -1,0 +1,15 @@
+test_database_integrity (test_data.DataTests.test_database_integrity) ... ok
+test_ingredient_search_and_detail_agree (test_data.DataTests.test_ingredient_search_and_detail_agree) ... ok
+test_read_only_connection (test_data.DataTests.test_read_only_connection) ... ok
+test_recipe_foreign_keys (test_data.DataTests.test_recipe_foreign_keys) ... ok
+test_unknown_and_sql_injection_inputs (test_data.DataTests.test_unknown_and_sql_injection_inputs) ... ok
+test_import_matches_original_steps_and_images (test_kaggle.KaggleTests.test_import_matches_original_steps_and_images) ... ok
+test_readonly (test_kaggle.KaggleTests.test_readonly) ... ok
+test_search_and_detail (test_kaggle.KaggleTests.test_search_and_detail) ... ok
+test_generated_data_roundtrip (test_supabase_export.ExportTests.test_generated_data_roundtrip) ... ok
+test_literal_escaping (test_supabase_export.ExportTests.test_literal_escaping) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.166s
+
+OK

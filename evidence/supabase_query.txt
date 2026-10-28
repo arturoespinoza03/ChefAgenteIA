@@ -1,0 +1,180 @@
+- link "Skip to content":
+  - /url: "#main"
+  - generic: Skip to content
+- banner:
+  - link "Supabase Back to organization home":
+    - /url: /dashboard/org/agmkfrbgxfdqdkrrtiak
+    - img "Supabase"
+    - generic: Back to organization home
+  - link "ChefPersonalBD Free":
+    - /url: /dashboard/org/agmkfrbgxfdqdkrrtiak
+    - generic: ChefPersonalBD
+    - generic: Free
+  - button "Show organizations":
+  - link "arturoespinoza03's Project":
+    - /url: /dashboard/project/uochnxgzsdslcgsznqso
+    - generic "arturoespinoza03's Project"
+  - button "Show organization projects":
+  - link "main Production":
+    - /url: /dashboard/project/uochnxgzsdslcgsznqso
+    - generic "main"
+    - generic: Production
+  - button "Show project branches":
+  - button "Connect":
+    - generic: Connect
+  - button "Feedback":
+    - generic: Feedback
+  - button "Search...":
+    - paragraph: Search...
+    - generic: ⌘K
+  - button "Help":
+    - generic: Help
+  - button "Advisor Center":
+    - generic: Advisor Center
+  - button "SQL Editor":
+    - generic: SQL Editor
+  - button "AI Assistant":
+    - generic: AI Assistant
+  - button:
+    - figure:
+- navigation:
+  - list:
+    - link "Project Overview":
+      - /url: /dashboard/project/uochnxgzsdslcgsznqso
+      - generic: Project Overview
+    - link "Table Editor":
+      - /url: /dashboard/project/uochnxgzsdslcgsznqso/editor
+      - generic: Table Editor
+    - link "SQL Editor":
+      - /url: /dashboard/project/uochnxgzsdslcgsznqso/sql
+      - generic: SQL Editor
+  - list:
+    - link "Database":
+      - /url: /dashboard/project/uochnxgzsdslcgsznqso/database/schemas
+      - generic: Database
+    - link "Authentication":
+      - /url: /dashboard/project/uochnxgzsdslcgsznqso/auth/users
+      - generic: Authentication
+    - link "Storage":
+      - /url: /dashboard/project/uochnxgzsdslcgsznqso/storage/files
+      - generic: Storage
+    - link "Edge Functions":
+      - /url: /dashboard/project/uochnxgzsdslcgsznqso/functions
+      - generic: Edge Functions
+    - link "Compute New":
+      - /url: /dashboard/project/uochnxgzsdslcgsznqso/compute
+      - generic: Compute
+      - generic: New
+    - link "Realtime":
+      - /url: /dashboard/project/uochnxgzsdslcgsznqso/realtime/inspector
+      - generic: Realtime
+  - list:
+    - link "Advisors":
+      - /url: /dashboard/project/uochnxgzsdslcgsznqso/advisors/health
+      - generic: Advisors
+    - link "Observability":
+      - /url: /dashboard/project/uochnxgzsdslcgsznqso/observability
+      - generic: Observability
+    - link "Logs":
+      - /url: /dashboard/project/uochnxgzsdslcgsznqso/logs
+      - generic: Logs
+    - link "Integrations":
+      - /url: /dashboard/project/uochnxgzsdslcgsznqso/integrations
+      - generic: Integrations
+  - list:
+    - link "Project Settings":
+      - /url: /dashboard/project/uochnxgzsdslcgsznqso/settings/general
+      - generic: Project Settings
+- button "Sidebar control":
+- main:
+  - heading "SQL Editor" [level=4]
+  - generic: Search queries
+  - textbox "Search queries..."
+  - button:
+  - button "Create a new query":
+  - button "Shared":
+    - generic: Shared
+  - button "Favorites":
+    - generic: Favorites
+  - button "PRIVATE" [expanded]:
+    - generic: PRIVATE
+  - tree "private-snippets":
+    - generic "Untitled query":
+      - generic: Untitled query
+  - button "Logs":
+    - generic: Logs
+  - button "Reference" [expanded]:
+    - generic: Reference
+  - link "templates":
+    - /url: /dashboard/project/uochnxgzsdslcgsznqso/sql/templates
+    - text: templates
+  - link "examples":
+    - /url: /dashboard/project/uochnxgzsdslcgsznqso/sql/examples
+    - text: examples
+  - link "View running queries":
+    - /url: /dashboard/project/uochnxgzsdslcgsznqso/observability/connections
+    - generic: View running queries
+  - separator:
+  - main:
+    - button "Collapse sidebar":
+      - generic: Collapse sidebar
+    - tablist:
+      - tab "Untitled query" [selected]:
+        - generic: Untitled query
+      - button "Close tab":
+      - separator
+      - button:
+    - status
+    - generic: Unsaved edits
+    - button "More actions":
+    - 'button "Query source: Database"':
+      - generic: Database
+    - button "Save":
+      - generic: Save
+      - generic: ⌘S
+    - button "Run":
+      - generic: Run
+      - generic: ⌘↵
+    - code:
+      - generic: "1"
+      - generic: SELECT r.name, count(s.position) AS pasos FROM public.chef_kaggle_recipes r JOIN public.chef_kaggle_steps s ON s.recipe_id=r.id
+      - generic: WHERE r.id='Ground_Beef_Soup' GROUP BY r.name;
+      - textbox "Editor content" [active]: SELECT r.name, count(s.position) AS pasos FROM public.chef_kaggle_recipes r JOIN public.chef_kaggle_steps s ON s.recipe_id=r.id WHERE r.id='Ground_Beef_Soup' GROUP BY r.name;
+    - separator:
+    - tablist:
+      - tab "Results" [selected]:
+        - generic: Results
+      - tab "Chart":
+        - generic: Chart
+      - button "1 row(Limited to only 100 rows)":
+        - paragraph:
+          - generic: 1 row
+          - text: (Limited to only 100 rows)
+      - button "Export":
+        - generic: Export
+    - grid:
+      - row "name pasos":
+        - columnheader "name":
+          - generic: name
+        - columnheader "pasos":
+          - generic: pasos
+      - row "Ground Beef Soup 9":
+        - gridcell "Ground Beef Soup":
+          - generic: Ground Beef Soup
+        - gridcell "9":
+          - generic: "9"
+- button "Close banner":
+- generic: Preview
+- paragraph: User growth
+- paragraph: Track how your user base is trending.
+- paragraph:
+  - generic: select
+  - generic: date_trunc('week', last_sign_in_at) as week,
+  - generic: count(distinct id) as active_users
+- paragraph: Explorer & Notebooks
+- paragraph: New unified workspace for querying data and chatting with Assistant.
+- button "Enable Explorer":
+  - generic: Enable Explorer
+- region "Notifications alt+T"
+- alert
+- alert

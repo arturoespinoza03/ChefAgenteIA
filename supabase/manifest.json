@@ -1,0 +1,14 @@
+{
+  "expected_rows": {
+    "chef_kaggle_recipes": 719,
+    "chef_kaggle_steps": 10892,
+    "chef_kaggle_images": 2893,
+    "chef_themealdb_recipes": 25,
+    "chef_themealdb_ingredients": 202,
+    "chef_curated_ingredients": 34
+  },
+  "sql_sha256": "b87cc3702069ecea3afac5b302aa4552dd881416c543930d05b19b0f3972483e",
+  "image_files_uploaded": false,
+  "remote_import_verified": true,
+  "remote_project_ref": "uochnxgzsdslcgsznqso"
+}

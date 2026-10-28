@@ -1,0 +1,8 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {"label":"Chef-IA: ejecutar pruebas","type":"process","command":"python3","args":["-m","unittest","discover","-s","tests","-v"],"options":{"cwd":"${workspaceFolder}"},"problemMatcher":[],"group":{"kind":"test","isDefault":true}},
+    {"label":"Chef-IA: buscar recetas de pollo","type":"process","command":"python3","args":["src/query_data.py","kaggle-search","chicken"],"options":{"cwd":"${workspaceFolder}"},"problemMatcher":[]},
+    {"label":"Chef-IA: ver receta de ejemplo","type":"process","command":"python3","args":["src/query_data.py","kaggle-recipe","Ground_Beef_Soup"],"options":{"cwd":"${workspaceFolder}"},"problemMatcher":[]}
+  ]
+}

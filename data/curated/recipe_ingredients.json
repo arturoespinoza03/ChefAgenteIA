@@ -1,0 +1,345 @@
+{
+  "review_method": "Extracción manual asistida por IA desde pasos originales; pendiente de validación por el equipo. Lista de menciones, no ficha culinaria certificada.",
+  "ingredients": [
+    {
+      "recipe_id": "Cream_of_Broccoli_Soup",
+      "ingredient_key": "broccoli",
+      "label_es": "Brócoli",
+      "source_step": 1,
+      "evidence_text": "broccoli",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Cream_of_Broccoli_Soup",
+      "ingredient_key": "potato",
+      "label_es": "Patata",
+      "source_step": 1,
+      "evidence_text": "potatoes",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Cream_of_Broccoli_Soup",
+      "ingredient_key": "onion",
+      "label_es": "Cebolla",
+      "source_step": 1,
+      "evidence_text": "onions",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Cream_of_Broccoli_Soup",
+      "ingredient_key": "oil",
+      "label_es": "Aceite sin especificar",
+      "source_step": 2,
+      "evidence_text": "oil",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Cream_of_Broccoli_Soup",
+      "ingredient_key": "garlic",
+      "label_es": "Ajo",
+      "source_step": 2,
+      "evidence_text": "garlic",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Cream_of_Broccoli_Soup",
+      "ingredient_key": "bay_leaf",
+      "label_es": "Laurel",
+      "source_step": 2,
+      "evidence_text": "bay leaves",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Cream_of_Broccoli_Soup",
+      "ingredient_key": "thyme",
+      "label_es": "Tomillo",
+      "source_step": 3,
+      "evidence_text": "thyme",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Cream_of_Broccoli_Soup",
+      "ingredient_key": "stock",
+      "label_es": "Caldo",
+      "source_step": 3,
+      "evidence_text": "stock",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Cream_of_Broccoli_Soup",
+      "ingredient_key": "salt",
+      "label_es": "Sal",
+      "source_step": 4,
+      "evidence_text": "salt",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Cream_of_Broccoli_Soup",
+      "ingredient_key": "pepper",
+      "label_es": "Pimienta",
+      "source_step": 4,
+      "evidence_text": "pepper",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Cream_of_Broccoli_Soup",
+      "ingredient_key": "parsley",
+      "label_es": "Perejil",
+      "source_step": 6,
+      "evidence_text": "parsley",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Cream_of_Broccoli_Soup",
+      "ingredient_key": "milk",
+      "label_es": "Leche",
+      "source_step": 7,
+      "evidence_text": "milk",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Cream_of_Broccoli_Soup",
+      "ingredient_key": "cornstarch",
+      "label_es": "Maicena",
+      "source_step": 7,
+      "evidence_text": "cornstarch",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Cream_of_Broccoli_Soup",
+      "ingredient_key": "parmesan",
+      "label_es": "Parmesano",
+      "source_step": 7,
+      "evidence_text": "Parmesan",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Cream_of_Broccoli_Soup",
+      "ingredient_key": "water",
+      "label_es": "Agua",
+      "source_step": 8,
+      "evidence_text": "water",
+      "optional": 1,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Cream_of_Broccoli_Soup",
+      "ingredient_key": "toast_or_croutons",
+      "label_es": "Pan tostado o picatostes",
+      "source_step": 9,
+      "evidence_text": "toasted bread or croutons",
+      "optional": 1,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Honey_Garlic_Salmon",
+      "ingredient_key": "salmon",
+      "label_es": "Salmón",
+      "source_step": 1,
+      "evidence_text": "salmon",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Honey_Garlic_Salmon",
+      "ingredient_key": "milk",
+      "label_es": "Leche para remojo opcional",
+      "source_step": 1,
+      "evidence_text": "milk",
+      "optional": 1,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Honey_Garlic_Salmon",
+      "ingredient_key": "oil",
+      "label_es": "Aceite sin especificar",
+      "source_step": 2,
+      "evidence_text": "oil",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Honey_Garlic_Salmon",
+      "ingredient_key": "butter",
+      "label_es": "Mantequilla",
+      "source_step": 5,
+      "evidence_text": "butter",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Honey_Garlic_Salmon",
+      "ingredient_key": "garlic",
+      "label_es": "Ajo",
+      "source_step": 5,
+      "evidence_text": "garlic",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Honey_Garlic_Salmon",
+      "ingredient_key": "lemon_juice",
+      "label_es": "Zumo de limón",
+      "source_step": 5,
+      "evidence_text": "lemon juice",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Honey_Garlic_Salmon",
+      "ingredient_key": "honey",
+      "label_es": "Miel",
+      "source_step": 5,
+      "evidence_text": "honey",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Honey_Garlic_Salmon",
+      "ingredient_key": "parsley",
+      "label_es": "Perejil",
+      "source_step": 6,
+      "evidence_text": "parsley",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Avocado_Salad",
+      "ingredient_key": "lemon_juice",
+      "label_es": "Zumo de limón",
+      "source_step": 1,
+      "evidence_text": "lemon juice",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Avocado_Salad",
+      "ingredient_key": "sugar",
+      "label_es": "Azúcar",
+      "source_step": 1,
+      "evidence_text": "sugar",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Avocado_Salad",
+      "ingredient_key": "salt",
+      "label_es": "Sal",
+      "source_step": 1,
+      "evidence_text": "salt",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Avocado_Salad",
+      "ingredient_key": "olive_oil",
+      "label_es": "Aceite de oliva",
+      "source_step": 1,
+      "evidence_text": "olive oil",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Avocado_Salad",
+      "ingredient_key": "cucumber",
+      "label_es": "Pepino",
+      "source_step": 2,
+      "evidence_text": "cucumbers",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Avocado_Salad",
+      "ingredient_key": "tomato",
+      "label_es": "Tomate fresco",
+      "source_step": 2,
+      "evidence_text": "tomatoes",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Avocado_Salad",
+      "ingredient_key": "onion",
+      "label_es": "Cebolla",
+      "source_step": 2,
+      "evidence_text": "onions",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Avocado_Salad",
+      "ingredient_key": "avocado",
+      "label_es": "Aguacate",
+      "source_step": 2,
+      "evidence_text": "avocado",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Avocado_Salad",
+      "ingredient_key": "parsley",
+      "label_es": "Perejil",
+      "source_step": 3,
+      "evidence_text": "parsley",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    },
+    {
+      "recipe_id": "Avocado_Salad",
+      "ingredient_key": "olives",
+      "label_es": "Aceitunas",
+      "source_step": 3,
+      "evidence_text": "olives",
+      "optional": 0,
+      "quantity": null,
+      "unit": null
+    }
+  ]
+}

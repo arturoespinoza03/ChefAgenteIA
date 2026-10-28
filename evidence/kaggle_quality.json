@@ -1,0 +1,11 @@
+{
+  "recipes": 719,
+  "steps": 10892,
+  "image_references": 2893,
+  "recipes_without_images": 4,
+  "empty_steps": 0,
+  "recipes_without_steps": 4,
+  "duplicate_step_sequences": 5,
+  "unreferenced_image_files": 28,
+  "missing_images": 0
+}
