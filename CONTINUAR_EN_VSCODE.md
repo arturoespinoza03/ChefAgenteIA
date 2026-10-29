@@ -22,9 +22,12 @@ Instala el backend y prepara la configuración local:
 ```powershell
 python -m pip install -r requirements-backend.txt
 Copy-Item .env.example .env
+python src/install_translation_model.py
 ```
 
-En `.env`, configura `SUPABASE_PUBLISHABLE_KEY`. Los términos culinarios habituales en español se traducen localmente para buscar en inglés sin depender de un servicio externo. `LIBRETRANSLATE_URL` y `LIBRETRANSLATE_API_KEY` son opcionales para términos no reconocidos y para la traducción de recetas; el servicio gestionado `libretranslate.com` requiere una clave API y también puedes usar una instancia propia. Los textos solo se envían a LibreTranslate cuando se necesita ese respaldo o se pulsa el botón de traducción de receta.
+En `.env`, configura `SUPABASE_PUBLISHABLE_KEY`. El comando `install_translation_model.py` descarga e instala el modelo inglés-español de Argos una sola vez. Después, al abrir una receta, se traduce automáticamente en el equipo; los textos de recetas no se envían a un servicio de traducción externo.
+
+El modelo ocupa aproximadamente 88 MB. Si Windows informa de una ruta demasiado larga al instalar las dependencias, crea un entorno virtual fuera de la carpeta profunda del proyecto, por ejemplo `C:\venvs\chef-ia`, e instala y ejecuta la aplicación usando `C:\venvs\chef-ia\Scripts\python.exe`.
 
 Ejecuta `python src/api.py` o la tarea `Chef-IA: iniciar web local`; se abrirá `http://127.0.0.1:8765` en el navegador. El backend solo escucha en `127.0.0.1`. La antigua ventana PySide6 puede abrirse con `python src/desktop.py`.
 
@@ -33,7 +36,7 @@ Ejecuta `python src/api.py` o la tarea `Chef-IA: iniciar web local`; se abrirá 
 - Consulta local sin red de 719 recetas Kaggle, 10.892 pasos y 2.893 referencias a imágenes, con los archivos de imagen incluidos.
 - Catálogo adicional TheMealDB: 25 recetas y 202 entradas de ingredientes.
 - Pruebas de consultas, integridad, lectura, exportación y correspondencia de datos.
-- Interfaz HTML/CSS/JavaScript abierta en el navegador; busca en ambos catálogos sin selector visible y traduce localmente los términos culinarios habituales en español. LibreTranslate es opcional, solo para respaldo de términos no reconocidos y traducción de recetas.
+- Interfaz HTML/CSS/JavaScript abierta en el navegador; busca en ambos catálogos sin selector visible y traduce automáticamente las recetas al español en el equipo con el modelo local Argos.
 - Importación remota ya ejecutada en Supabase y recuentos comprobados. Consulta relacionada verificada: Ground Beef Soup, nueve pasos.
 - Definición aprobada del agente y Skill propia escrita.
 
@@ -46,7 +49,7 @@ El usuario pide trabajar **uno a uno y preguntar antes de ejecutar cada siguient
 1. Agente principal Chef Personal: definición aprobada y guardada en `docs/AGENTE.md` y `agent/INSTRUCCIONES.md`.
 2. Skill `planificar-menu-con-evidencia`: aprobada y creada en `skills/planificar-menu-con-evidencia/SKILL.md`. Su validador de formato externo no se ejecutó por falta de PyYAML; la ejecución del proyecto no depende de ese validador.
 3. MCP: aprobado. `.vscode/mcp.json` configura el MCP oficial de Supabase para el proyecto `uochnxgzsdslcgsznqso`, con `read_only=true` y solo las funciones de base de datos y documentación. El usuario confirmó que VS Code muestra el servidor conectado. Esta sesión no expone herramientas Supabase MCP, así que no se ha ejecutado aquí una consulta remota. El MCP es para desarrollo; el `.exe` consultará Supabase mediante acceso de aplicación seguro, no mediante la sesión MCP de VS Code.
-4. Interfaz web `src/web/` y backend local: la web consulta en tiempo real ambos catálogos Supabase a través de `src/api.py`. Búsquedas en español usan un vocabulario culinario local; LibreTranslate se reserva como respaldo opcional y para traducción bajo demanda de recetas.
+4. Interfaz web `src/web/` y backend local: la web consulta en tiempo real ambos catálogos Supabase a través de `src/api.py`. Los términos habituales de búsqueda en español se traducen localmente; las recetas se traducen automáticamente al abrirlas con el modelo Argos inglés-español. La instalación inicial del modelo requiere conexión a Internet; las traducciones posteriores son locales.
 5. Matriz de errores y acciones que necesitan autorización: pendiente de propuesta y aprobación. Las instrucciones actuales ya prohíben cambios y compras sin autorización.
 
 La petición de trasladar el proyecto no aprueba las fases pendientes ni habilita nuevas conexiones.

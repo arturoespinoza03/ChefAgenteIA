@@ -141,6 +141,8 @@ kbd { padding: 3px 7px; border: 1px solid #eceee8; border-radius: 5px; color: #9
 .dialog-content h2 { margin: 0 40px 12px 0; font-family: var(--serif); font-size: clamp(28px, 5vw, 42px); font-weight: 500; letter-spacing: -.04em; line-height: 1.08; }
 .dialog-description { color: var(--muted); font-size: 12px; line-height: 1.6; }
 .dialog-actions { display: flex; flex-wrap: wrap; gap: 9px; margin: 20px 0 26px; }
+.translation-status { margin: 14px 0; color: var(--green); font-size: 12px; line-height: 1.6; }
+.translation-status.error { color: #a44032; }
 .action-button { padding: 10px 14px; border: 1px solid #d9e1d5; border-radius: 8px; color: var(--green); background: #f5f7f1; font-size: 11px; font-weight: 600; transition: .2s; }
 .action-button:hover:not(:disabled) { border-color: #9db19a; background: #eaf0e5; }
 .action-button:disabled { opacity: .6; cursor: wait; }

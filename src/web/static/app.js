@@ -181,7 +181,7 @@ function buildRecipeView(recipe, isTranslated = false, originalRecipe = recipe) 
 
   const eyebrow = document.createElement("p");
   eyebrow.className = "dialog-eyebrow";
-  eyebrow.textContent = `${sourceNames[recipe.source] || recipe.source} · ${isTranslated ? "Traducción automática" : "Receta del catálogo"}`;
+  eyebrow.textContent = `${sourceNames[recipe.source] || recipe.source} · ${isTranslated ? "Traducción local automática" : "Receta original"}`;
 
   const title = document.createElement("h2");
   title.textContent = recipe.name || "Receta";
@@ -227,7 +227,7 @@ function buildRecipeView(recipe, isTranslated = false, originalRecipe = recipe) 
 
   const note = document.createElement("p");
   note.className = "recipe-note";
-  note.textContent = "La traducción es automática. Comprueba siempre los ingredientes y las instrucciones originales; los datos no garantizan información completa sobre alérgenos, cantidades, raciones o tiempos.";
+  note.textContent = "La traducción se procesa en este equipo y puede contener errores u omitir términos. Comprueba siempre los ingredientes y las instrucciones originales; los datos no garantizan información completa sobre alérgenos, cantidades, raciones o tiempos.";
   dialogContent.append(note);
 }
 
@@ -244,6 +244,7 @@ async function openRecipe(source, recipeId) {
     const recipe = await requestJson(`/api/recipes/${encodeURIComponent(source)}/${encodeURIComponent(recipeId)}`);
     if (generation !== detailGeneration) return;
     buildRecipeView(recipe);
+    await translateRecipe(recipe, generation, true);
   } catch (error) {
     if (generation !== detailGeneration) return;
     dialogContent.replaceChildren();
@@ -255,7 +256,19 @@ async function openRecipe(source, recipeId) {
   }
 }
 
-async function translateRecipe(recipe) {
+function setTranslationStatus(message, isError = false) {
+  dialogContent.querySelector(".translation-status")?.remove();
+  if (!message) return;
+
+  const status = document.createElement("p");
+  status.className = `translation-status${isError ? " error" : ""}`;
+  status.setAttribute("role", "status");
+  status.textContent = message;
+  const actions = dialogContent.querySelector(".dialog-actions");
+  dialogContent.insertBefore(status, actions);
+}
+
+async function translateRecipe(recipe, generation = detailGeneration, automatic = false) {
   const textItems = [];
   const addText = (text) => {
     const index = textItems.length;
@@ -286,7 +299,7 @@ async function translateRecipe(recipe) {
     button.disabled = true;
     button.textContent = "Traduciendo…";
   }
-  showToast("Enviando el texto de esta receta a LibreTranslate…");
+  setTranslationStatus("Traduciendo al español en este equipo…");
 
   try {
     const translatedTexts = [...textItems];
@@ -297,6 +310,7 @@ async function translateRecipe(recipe) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ texts: batch.map((index) => textItems[index]) }),
       });
+      if (generation !== detailGeneration || !dialog.open) return;
       if (!Array.isArray(result.translations) || result.translations.length !== batch.length) {
         throw new Error("El servicio devolvió un resultado de traducción incompleto.");
       }
@@ -332,9 +346,12 @@ async function translateRecipe(recipe) {
       })),
       instructions: translatedAt(indexes.instructions, recipe.instructions),
     };
+    if (generation !== detailGeneration || !dialog.open) return;
     buildRecipeView(translatedRecipe, true, recipe);
-    showToast("Receta traducida al español.");
+    if (!automatic) showToast("Receta traducida localmente al español.");
   } catch (error) {
+    if (generation !== detailGeneration || !dialog.open) return;
+    setTranslationStatus(error.message, true);
     showToast(error.message);
     if (button?.isConnected) {
       button.disabled = false;

@@ -1,12 +1,18 @@
-"""Local, read-only API for the desktop application's Supabase queries."""
+"""Local, read-only API for Chef's web and desktop applications."""
 import logging
 import os
 import re
 import threading
 import unicodedata
-from typing import Literal
+from functools import lru_cache
+from typing import Callable, Literal
 from urllib.parse import urlparse
 import webbrowser
+
+try:
+    import argostranslate.translate as argos_translate
+except ImportError:
+    argos_translate = None
 
 import httpx
 import uvicorn
@@ -20,6 +26,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 load_dotenv(os.path.join(ROOT, ".env"))
 
 LOGGER = logging.getLogger("chef.api")
+LOCAL_TRANSLATION_LOCK = threading.Lock()
 TABLES = {
     "chef_kaggle_recipes",
     "chef_kaggle_steps",
@@ -246,75 +253,53 @@ def _local_search_translations(term: str) -> list[str]:
     ))
 
 
-def _libretranslate(
-    text: str,
-    source: str,
-    target: str,
-    timeout: float = 30.0,
-) -> str:
-    endpoint = os.getenv(
-        "LIBRETRANSLATE_URL",
-        "https://libretranslate.com/translate",
-    ).strip()
-    parsed_endpoint = urlparse(endpoint)
-    local_endpoint = parsed_endpoint.hostname in {"localhost", "127.0.0.1", "::1"}
-    if (
-        parsed_endpoint.scheme not in ({"https", "http"} if local_endpoint else {"https"})
-        or not parsed_endpoint.hostname
-        or parsed_endpoint.username
-        or parsed_endpoint.password
-        or parsed_endpoint.query
-        or parsed_endpoint.fragment
-    ):
+@lru_cache(maxsize=2)
+def _local_translator(
+    source_code: str,
+    target_code: str,
+) -> Callable[[str], str]:
+    if argos_translate is None:
         raise HTTPException(
             status_code=503,
-            detail="Configura una URL HTTPS válida de LibreTranslate (o localhost).",
-        )
-
-    body = {"q": text, "source": source, "target": target, "format": "text"}
-    api_key = os.getenv("LIBRETRANSLATE_API_KEY", "").strip()
-    if api_key:
-        body["api_key"] = api_key
-    try:
-        response = httpx.post(endpoint, json=body, timeout=timeout)
-        response.raise_for_status()
-        result = response.json()
-    except httpx.TimeoutException as error:
-        LOGGER.exception("Timeout del servicio LibreTranslate")
-        raise HTTPException(
-            status_code=504,
-            detail="El servicio de traducción no respondió a tiempo.",
-        ) from error
-    except httpx.HTTPStatusError as error:
-        LOGGER.error("LibreTranslate devolvió HTTP %s", error.response.status_code)
-        raise HTTPException(
-            status_code=502,
             detail=(
-                "LibreTranslate rechazó la solicitud "
-                f"(HTTP {error.response.status_code}). Revisa URL y clave API."
+                "Falta el traductor local. Ejecuta "
+                "`python -m pip install -r requirements-backend.txt`."
             ),
-        ) from error
-    except httpx.RequestError as error:
-        LOGGER.exception("Error de red con LibreTranslate")
-        raise HTTPException(
-            status_code=502,
-            detail="No se pudo conectar con LibreTranslate.",
-        ) from error
-    except ValueError as error:
-        LOGGER.exception("LibreTranslate devolvió JSON no válido")
-        raise HTTPException(
-            status_code=502,
-            detail="LibreTranslate devolvió una respuesta no válida.",
-        ) from error
-
-    translated_text = result.get("translatedText") if isinstance(result, dict) else None
-    if not isinstance(translated_text, str):
-        LOGGER.error("Formato inesperado desde LibreTranslate")
-        raise HTTPException(
-            status_code=502,
-            detail="LibreTranslate devolvió una respuesta no válida.",
         )
-    return translated_text
+
+    languages = argos_translate.get_installed_languages()
+    source_language = next(
+        (language for language in languages if language.code == source_code),
+        None,
+    )
+    target_language = next(
+        (language for language in languages if language.code == target_code),
+        None,
+    )
+    if source_language is None or target_language is None:
+        raise HTTPException(
+            status_code=503,
+            detail=(
+                "Falta el modelo local inglés-español. Ejecuta "
+                "`python src/install_translation_model.py` y reinicia la aplicación."
+            ),
+        )
+
+    translation = source_language.get_translation(target_language)
+    if translation is None:
+        raise HTTPException(
+            status_code=503,
+            detail=(
+                "Falta el modelo local inglés-español. Ejecuta "
+                "`python src/install_translation_model.py` y reinicia la aplicación."
+            ),
+        )
+    return translation.translate
+
+
+def _translate_local(text: str, source_code: str, target_code: str) -> str:
+    with LOCAL_TRANSLATION_LOCK:
+        return _local_translator(source_code, target_code)(text)
 
 
 def _search_kaggle(pattern: str) -> list[dict]:
@@ -421,23 +406,6 @@ def search_recipes(
     terms = [q.strip()]
     if _is_spanish_search(q):
         terms.extend(_local_search_translations(q))
-        if len(terms) == 1:
-            try:
-                translated_term = _libretranslate(
-                    q.strip(),
-                    "auto",
-                    "en",
-                    timeout=5.0,
-                ).strip()
-            except HTTPException as error:
-                LOGGER.warning(
-                    "Traducción opcional no disponible para búsqueda (HTTP %s); "
-                    "se buscará el término original.",
-                    error.status_code,
-                )
-            else:
-                if translated_term and translated_term.casefold() != q.strip().casefold():
-                    terms.append(translated_term)
 
     searchers = {
         "kaggle": (_search_kaggle,),
@@ -527,7 +495,7 @@ def translate_texts(payload: dict) -> dict[str, list[str]]:
             detail="Envía entre 1 y 30 textos no vacíos, de hasta 4.000 caracteres cada uno.",
         )
 
-    translations = [_libretranslate(text, "auto", "es") for text in texts]
+    translations = [_translate_local(text, "en", "es") for text in texts]
 
     return {"translations": translations}
 

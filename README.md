@@ -1,6 +1,6 @@
 # Chef — asistente de recetas
 
-Proyecto educativo de sistema agéntico aplicado a planificación culinaria. Alcance actualizado: consulta y selección de recetas, instrucciones y apoyo para identificar ingredientes. La interfaz web local consulta un backend de solo lectura que accede a Supabase bajo demanda. La traducción de recetas es opcional; se envía a LibreTranslate solo cuando el usuario la solicita. El agente conversacional y el ejecutable `.exe` siguen pendientes.
+Proyecto educativo de sistema agéntico aplicado a planificación culinaria. Alcance actualizado: consulta y selección de recetas, instrucciones y apoyo para identificar ingredientes. La interfaz web local consulta un backend de solo lectura que accede a Supabase bajo demanda. Las recetas se traducen automáticamente al español en el propio equipo al abrirlas, usando Argos Translate. El agente conversacional y el ejecutable `.exe` siguen pendientes.
 
 ## Alcance
 
@@ -24,13 +24,23 @@ python3 -m unittest discover -s tests -v
 
 ## Aplicación web local
 
-La interfaz web local usa HTML, CSS y JavaScript; el backend consulta ambos catálogos en Supabase bajo demanda, sin descargar el catálogo completo. Busca por nombre e ingredientes disponibles en español e inglés. Los términos culinarios habituales en español se traducen localmente para no depender de un servicio externo; LibreTranslate queda como respaldo para términos no reconocidos y para la traducción opcional de recetas. Instala las dependencias del backend:
+La interfaz web local usa HTML, CSS y JavaScript; el backend consulta ambos catálogos en Supabase bajo demanda, sin descargar el catálogo completo. Busca por nombre e ingredientes disponibles en español e inglés. Las recetas se traducen localmente al abrirlas; el texto no se envía a servicios de traducción externos. Instala las dependencias del backend y descarga una vez el modelo de traducción inglés-español:
 
 ```sh
 python -m pip install -r requirements-backend.txt
+python src/install_translation_model.py
 ```
 
-Configura `SUPABASE_PUBLISHABLE_KEY` en `.env` con la clave pública del proyecto. `LIBRETRANSLATE_URL` y `LIBRETRANSLATE_API_KEY` son opcionales para la búsqueda local de términos culinarios conocidos; son necesarios si se quiere usar LibreTranslate como respaldo o traducir recetas. El servicio gestionado `libretranslate.com` requiere una clave de API, o puedes apuntar a una instancia propia. Al usar el respaldo o pulsar el botón de traducción de receta, los textos se envían al servicio configurado. Revisa las condiciones y privacidad del servidor elegido. Las claves se guardan solo en el backend local.
+Configura `SUPABASE_PUBLISHABLE_KEY` en `.env` con la clave pública del proyecto. El modelo se descarga desde el índice oficial de Argos durante la instalación inicial; después la traducción funciona sin conexión y no necesita claves de traducción.
+
+El modelo ocupa aproximadamente 88 MB. En Windows, si `pip` falla al extraer dependencias por la longitud de la ruta del Python de Microsoft Store, usa un entorno virtual en una ruta corta:
+
+```powershell
+python -m venv C:\venvs\chef-ia
+C:\venvs\chef-ia\Scripts\python.exe -m pip install -r requirements-backend.txt
+C:\venvs\chef-ia\Scripts\python.exe src\install_translation_model.py
+C:\venvs\chef-ia\Scripts\python.exe src\api.py
+```
 
 Inicia el servidor:
 

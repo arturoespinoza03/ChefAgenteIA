@@ -2,7 +2,7 @@ import os
 import sys
 import unittest
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import call, patch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
@@ -28,8 +28,6 @@ class ApiTests(unittest.TestCase):
             {
                 "SUPABASE_URL": "https://uochnxgzsdslcgsznqso.supabase.co",
                 "SUPABASE_PUBLISHABLE_KEY": "test-public-key",
-                "LIBRETRANSLATE_URL": "https://translate.example/translate",
-                "LIBRETRANSLATE_API_KEY": "",
             },
         )
         self.environment.start()
@@ -88,7 +86,7 @@ class ApiTests(unittest.TestCase):
     def test_spanish_search_uses_local_translation_and_matches_catalogs(self):
         meal = {"id": "53151", "name": "Chicken Paella", "category": "Chicken"}
         with (
-            patch("api.httpx.post") as translation,
+            patch("api._translate_local") as translation,
             patch(
                 "api.httpx.get",
                 side_effect=[
@@ -124,9 +122,9 @@ class ApiTests(unittest.TestCase):
             ["ilike.*pollo*"] * 4 + ["ilike.*chicken*"] * 4,
         )
 
-    def test_spanish_phrase_search_does_not_depend_on_external_translation(self):
+    def test_spanish_phrase_search_uses_local_terms(self):
         with (
-            patch("api.httpx.post") as translation,
+            patch("api._translate_local") as translation,
             patch(
                 "api.httpx.get",
                 side_effect=[self.response([]) for _ in range(8)],
@@ -159,16 +157,9 @@ class ApiTests(unittest.TestCase):
             ["soup mushrooms", "soup", "mushrooms"],
         )
 
-    def test_external_translation_failure_does_not_fail_search(self):
-        request = httpx.Request("POST", "https://translate.example/translate")
-        failed_response = httpx.Response(400, request=request)
-        translation_error = httpx.HTTPStatusError(
-            "Bad request",
-            request=request,
-            response=failed_response,
-        )
+    def test_unmapped_spanish_search_does_not_require_translation_model(self):
         with (
-            patch("api.httpx.post", side_effect=translation_error),
+            patch("api._translate_local") as translation,
             patch("api.httpx.get", side_effect=[self.response([]) for _ in range(4)]),
         ):
             response = self.client.get(
@@ -178,10 +169,11 @@ class ApiTests(unittest.TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json(), [])
+        translation.assert_not_called()
 
-    def test_english_search_does_not_call_translation_service(self):
+    def test_english_search_does_not_call_local_translation(self):
         with (
-            patch("api.httpx.post") as translation,
+            patch("api._translate_local") as translation,
             patch(
                 "api.httpx.get",
                 side_effect=[
@@ -246,47 +238,50 @@ class ApiTests(unittest.TestCase):
                 asset_response = self.client.get(f"/static/{asset}")
                 self.assertEqual(asset_response.status_code, 200)
 
-    def test_translation_uses_libretranslate_and_returns_text(self):
-        translated = httpx.Response(
-            200,
-            json={"translatedText": "Pollo asado"},
-            request=httpx.Request("POST", "https://translate.example/translate"),
+    def test_translation_uses_local_model_and_returns_text(self):
+        with patch(
+            "api._translate_local",
+            side_effect=lambda text, source, target: f"{text} traducido",
+        ) as translation:
+            response = self.client.post(
+                "/api/translate",
+                json={"texts": ["Roast Chicken", "Fresh herbs"]},
+            )
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(
+            response.json(),
+            {"translations": ["Roast Chicken traducido", "Fresh herbs traducido"]},
         )
-        with patch("api.httpx.post", return_value=translated) as request:
+        self.assertEqual(
+            translation.call_args_list,
+            [
+                call("Roast Chicken", "en", "es"),
+                call("Fresh herbs", "en", "es"),
+            ],
+        )
+
+    def test_translation_reports_missing_local_model(self):
+        from fastapi import HTTPException
+
+        with patch(
+            "api._translate_local",
+            side_effect=HTTPException(503, "Falta el modelo local inglés-español."),
+        ):
             response = self.client.post(
                 "/api/translate",
                 json={"texts": ["Roast Chicken"]},
             )
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.json(), {"translations": ["Pollo asado"]})
-        self.assertEqual(
-            request.call_args.kwargs["json"],
-            {
-                "q": "Roast Chicken",
-                "source": "auto",
-                "target": "es",
-                "format": "text",
-            },
-        )
+        self.assertEqual(response.status_code, 503)
+        self.assertIn("modelo local", response.json()["detail"])
 
     def test_translation_rejects_too_many_texts(self):
-        with patch("api.httpx.post") as request:
+        with patch("api._translate_local") as translation:
             response = self.client.post(
                 "/api/translate",
                 json={"texts": ["recipe"] * 31},
             )
         self.assertEqual(response.status_code, 422)
-        request.assert_not_called()
-
-    def test_translation_rejects_non_https_remote_endpoint(self):
-        os.environ["LIBRETRANSLATE_URL"] = "http://translate.example/translate"
-        with patch("api.httpx.post") as request:
-            response = self.client.post(
-                "/api/translate",
-                json={"texts": ["Chicken"]},
-            )
-        self.assertEqual(response.status_code, 503)
-        request.assert_not_called()
+        translation.assert_not_called()
 
 
 if __name__ == "__main__":
