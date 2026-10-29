@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: chef-recipes
+    runtime: python
+    plan: free
+    branch: copilot/translate-recipes-locally
+    buildCommand: python -m pip install -r requirements-backend.txt && XDG_DATA_HOME="$PWD/.render-data" python src/install_translation_model.py
+    startCommand: XDG_DATA_HOME="$PWD/.render-data" uvicorn api:app --app-dir src --host 0.0.0.0 --port "$PORT"
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.14
+      - key: SUPABASE_URL
+        value: https://uochnxgzsdslcgsznqso.supabase.co
+      - key: SUPABASE_PUBLISHABLE_KEY
+        sync: false

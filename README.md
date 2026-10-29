@@ -50,6 +50,16 @@ python src/api.py
 
 Se abrirá el navegador en `http://127.0.0.1:8765`. El backend solo escucha en la interfaz local; no lo expongas directamente a Internet.
 
+## Publicar para compartir (Render)
+
+El archivo `render.yaml` configura un servicio web de Render en la rama `copilot/translate-recipes-locally`, con el plan gratuito y el chequeo de salud `/health`. Para publicarlo:
+
+1. En Render, crea un **Blueprint** y conecta este repositorio y esa rama.
+2. Al configurar el Blueprint, introduce `SUPABASE_PUBLISHABLE_KEY` cuando Render lo solicite. No la añadas a `render.yaml` ni al repositorio; no uses una clave `service_role`.
+3. Despliega el servicio y comparte la URL `onrender.com` que Render asigne.
+
+La URL será pública. El servidor consulta Supabase con una clave publicable, por lo que las políticas RLS deben limitar los datos accesibles. El servicio gratuito se suspende tras un periodo sin tráfico y puede tardar en despertar. La traducción usa un modelo de unos 88 MB y su consumo de memoria puede superar los recursos gratuitos; si Render muestra reinicios por falta de memoria, hará falta un plan con más RAM, que puede tener coste. El modelo se instala durante la compilación y se excluye del repositorio.
+
 La antigua interfaz PySide6 sigue disponible con `python src/desktop.py`. La web es la interfaz recomendada.
 
 Reconstrucción local, sin red:
