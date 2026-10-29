@@ -1,6 +1,6 @@
 # Chef — asistente de recetas
 
-Proyecto educativo de sistema agéntico aplicado a planificación culinaria. Alcance actualizado: consulta y selección de recetas, instrucciones y apoyo para identificar ingredientes. La capa de datos funciona; agente, Skills, MCP e interfaz quedan por implementar.
+Proyecto educativo de sistema agéntico aplicado a planificación culinaria. Alcance actualizado: consulta y selección de recetas, instrucciones y apoyo para identificar ingredientes. La interfaz web local consulta un backend de solo lectura que accede a Supabase bajo demanda. La traducción de recetas es opcional; se envía a LibreTranslate solo cuando el usuario la solicita. El agente conversacional y el ejecutable `.exe` siguen pendientes.
 
 ## Alcance
 
@@ -21,6 +21,26 @@ python3 src/query_data.py ingredient tomato
 python3 src/query_data.py recipe 53151
 python3 -m unittest discover -s tests -v
 ```
+
+## Aplicación web local
+
+La interfaz web local usa HTML, CSS y JavaScript; el backend consulta ambos catálogos en Supabase bajo demanda, sin descargar el catálogo completo. Busca por nombre e ingredientes disponibles en español e inglés. Los términos culinarios habituales en español se traducen localmente para no depender de un servicio externo; LibreTranslate queda como respaldo para términos no reconocidos y para la traducción opcional de recetas. Instala las dependencias del backend:
+
+```sh
+python -m pip install -r requirements-backend.txt
+```
+
+Configura `SUPABASE_PUBLISHABLE_KEY` en `.env` con la clave pública del proyecto. `LIBRETRANSLATE_URL` y `LIBRETRANSLATE_API_KEY` son opcionales para la búsqueda local de términos culinarios conocidos; son necesarios si se quiere usar LibreTranslate como respaldo o traducir recetas. El servicio gestionado `libretranslate.com` requiere una clave de API, o puedes apuntar a una instancia propia. Al usar el respaldo o pulsar el botón de traducción de receta, los textos se envían al servicio configurado. Revisa las condiciones y privacidad del servidor elegido. Las claves se guardan solo en el backend local.
+
+Inicia el servidor:
+
+```sh
+python src/api.py
+```
+
+Se abrirá el navegador en `http://127.0.0.1:8765`. El backend solo escucha en la interfaz local; no lo expongas directamente a Internet.
+
+La antigua interfaz PySide6 sigue disponible con `python src/desktop.py`. La web es la interfaz recomendada.
 
 Reconstrucción local, sin red:
 

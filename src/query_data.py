@@ -32,6 +32,14 @@ def kaggle_search(term):
     with connect('kaggle') as c:
         return [dict(r) for r in c.execute("SELECT id,name,(SELECT count(*) FROM steps WHERE recipe_id=r.id) AS step_count FROM recipes r WHERE instr(lower(name),lower(?))>0 ORDER BY name LIMIT 20", (term,))]
 
+def themealdb_search(term):
+    with connect('recipes') as c:
+        return [dict(r) for r in c.execute(
+            '''SELECT id,name,category,area FROM recipes
+            WHERE instr(lower(name),lower(?))>0 ORDER BY name LIMIT 20''',
+            (term.strip(),),
+        )]
+
 def kaggle_detail(recipe_id):
     with connect('kaggle') as c:
         row=c.execute('SELECT * FROM recipes WHERE id=?', (recipe_id,)).fetchone()
