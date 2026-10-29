@@ -1,6 +1,6 @@
 # Chef — asistente de recetas
 
-Proyecto educativo de sistema agéntico aplicado a planificación culinaria. Alcance actualizado: consulta y selección de recetas, instrucciones y apoyo para identificar ingredientes. La capa de datos funciona; agente, Skills, MCP e interfaz quedan por implementar.
+Proyecto educativo de sistema agéntico aplicado a planificación culinaria. Alcance actualizado: consulta y selección de recetas, instrucciones y apoyo para identificar ingredientes. La interfaz web local consulta un backend de solo lectura que accede a Supabase bajo demanda. Las recetas se traducen automáticamente al español en el propio equipo al abrirlas, usando Argos Translate. El agente conversacional y el ejecutable `.exe` siguen pendientes.
 
 ## Alcance
 
@@ -21,6 +21,36 @@ python3 src/query_data.py ingredient tomato
 python3 src/query_data.py recipe 53151
 python3 -m unittest discover -s tests -v
 ```
+
+## Aplicación web local
+
+La interfaz web local usa HTML, CSS y JavaScript; el backend consulta ambos catálogos en Supabase bajo demanda, sin descargar el catálogo completo. Busca por nombre e ingredientes disponibles en español e inglés. Las recetas se traducen localmente al abrirlas; el texto no se envía a servicios de traducción externos. Instala las dependencias del backend y descarga una vez el modelo de traducción inglés-español:
+
+```sh
+python -m pip install -r requirements-backend.txt
+python src/install_translation_model.py
+```
+
+Configura `SUPABASE_PUBLISHABLE_KEY` en `.env` con la clave pública del proyecto. El modelo se descarga desde el índice oficial de Argos durante la instalación inicial; después la traducción funciona sin conexión y no necesita claves de traducción.
+
+El modelo ocupa aproximadamente 88 MB. En Windows, si `pip` falla al extraer dependencias por la longitud de la ruta del Python de Microsoft Store, usa un entorno virtual en una ruta corta:
+
+```powershell
+python -m venv C:\venvs\chef-ia
+C:\venvs\chef-ia\Scripts\python.exe -m pip install -r requirements-backend.txt
+C:\venvs\chef-ia\Scripts\python.exe src\install_translation_model.py
+C:\venvs\chef-ia\Scripts\python.exe src\api.py
+```
+
+Inicia el servidor:
+
+```sh
+python src/api.py
+```
+
+Se abrirá el navegador en `http://127.0.0.1:8765`. El backend solo escucha en la interfaz local; no lo expongas directamente a Internet.
+
+La antigua interfaz PySide6 sigue disponible con `python src/desktop.py`. La web es la interfaz recomendada.
 
 Reconstrucción local, sin red:
 

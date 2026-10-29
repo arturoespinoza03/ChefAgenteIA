@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f3eb">
+  <title>Chef — ideas para tu mesa</title>
+  <link rel="stylesheet" href="static/styles.css">
+  <script src="static/app.js" defer></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Chef, inicio">
+        <span class="brand-mark" aria-hidden="true">c.</span>
+        <span>chef<span class="brand-period">.</span></span>
+      </a>
+      <div class="topbar-note"><span class="status-dot"></span> Tu ayudante de cocina</div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> INSPIRACIÓN PARA HOY</p>
+          <h1>¿Qué te apetece<br><em>cocinar?</em></h1>
+          <p class="hero-subtitle">Busca recetas por nombre o ingrediente. Entendemos términos habituales de cocina en español e inglés.</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <span class="art-sun"></span>
+          <span class="art-leaf leaf-one"></span>
+          <span class="art-leaf leaf-two"></span>
+          <span class="art-leaf leaf-three"></span>
+          <span class="art-plate"><span></span></span>
+          <span class="art-spark spark-one">✳</span>
+          <span class="art-spark spark-two">✳</span>
+        </div>
+      </section>
+
+      <section class="search-panel" aria-label="Buscar recetas">
+        <form id="search-form" class="search-form">
+          <label class="search-field">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <span class="sr-only">Nombre de la receta</span>
+            <input id="search-input" name="q" type="search" maxlength="80"
+              placeholder="Prueba «pollo», «sopa» o «paella»..." autocomplete="off" required>
+            <kbd>↵</kbd>
+          </label>
+          <button class="search-button" type="submit"><span>Buscar recetas</span><span aria-hidden="true">↗</span></button>
+        </form>
+        <div class="search-hints">
+          <span>IDEAS POPULARES</span>
+          <button type="button" class="hint-chip" data-query="pollo">Pollo</button>
+          <button type="button" class="hint-chip" data-query="pasta">Pasta</button>
+          <button type="button" class="hint-chip" data-query="paella">Paella</button>
+          <button type="button" class="hint-chip" data-query="sopa">Sopa</button>
+        </div>
+      </section>
+
+      <section id="results-section" class="results-section" aria-live="polite">
+        <div class="results-heading">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-line"></span> EL RECETARIO</p>
+            <h2 id="results-title">Un mundo de sabores</h2>
+          </div>
+          <span id="results-count" class="results-count"></span>
+        </div>
+        <div id="results-grid" class="recipe-grid"></div>
+        <div id="empty-state" class="empty-state">
+          <span class="empty-icon" aria-hidden="true">✳</span>
+          <p>Busca un plato que te guste<br>y empecemos por ahí.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span class="footer-brand">chef<span class="brand-period">.</span></span>
+      <span>Recetas con historia, ideas para cada día.</span>
+      <span class="footer-source"><span class="status-dot"></span> Catálogos conectados</span>
+    </footer>
+  </div>
+
+  <dialog id="recipe-dialog" class="recipe-dialog">
+    <button id="dialog-close" class="dialog-close" type="button" aria-label="Cerrar receta">×</button>
+    <div id="dialog-content" class="dialog-content"></div>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

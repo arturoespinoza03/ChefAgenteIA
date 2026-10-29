@@ -1,7 +1,7 @@
 import sys, unittest
 from pathlib import Path
 sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'src'))
-from query_data import connect, recipes_with_ingredient, recipe_detail
+from query_data import connect, recipes_with_ingredient, recipe_detail, themealdb_search
 
 class DataTests(unittest.TestCase):
     def test_database_integrity(self):
@@ -24,5 +24,10 @@ class DataTests(unittest.TestCase):
         import sqlite3
         with connect('recipes') as c:
             with self.assertRaises(sqlite3.OperationalError):c.execute("DELETE FROM recipes")
+    def test_themealdb_name_search_and_injection_input(self):
+        found=themealdb_search('paella')
+        self.assertTrue(found)
+        self.assertTrue(all('paella' in recipe['name'].casefold() for recipe in found))
+        self.assertEqual(themealdb_search("' OR 1=1 --"),[])
 
 if __name__=='__main__':unittest.main(verbosity=2)
